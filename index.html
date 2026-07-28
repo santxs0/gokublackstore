@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GokuBlack Store • Tabela de UPs Blox Fruits</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-1: #000000;
+    --bg-2: #0a0a0a;
+    --bg-3: #141414;
+    --primary: #ffffff;
+    --primary-2: #cccccc;
+    --accent: #888888;
+    --accent-2: #555555;
+    --text: #ffffff;
+    --text-dim: #aaaaaa;
+    --text-muted: #777777;
+    --card-bg: #0d0d0d;
+    --card-border: #2a2a2a;
+    --card-border-hover: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    background: #000000;
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    position: relative;
+    padding: 80px 20px 50px;
+    text-align: center;
+    z-index: 1;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .logo {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    position: relative;
+    display: inline-block;
+  }
+  .logo::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -8px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+    to { text-shadow: 0 0 35px rgba(255, 255, 255, 0.4); }
+  }
+  .logo { animation: glow 3s ease-in-out infinite alternate; }
+
+  .tagline {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin: 18px 0 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .updated {
+    display: inline-block;
+    background: #ffffff;
+    color: #000000;
+    padding: 8px 22px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+  }
+
+  .contact-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    margin-top: 25px;
+    border: 2px solid #fff;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 0;
+  }
+  .contact-cta:hover::before { transform: translateX(0); }
+  .contact-cta span { position: relative; z-index: 1; transition: color 0.25s ease; }
+  .contact-cta:hover span { color: #fff; }
+  .contact-cta:hover { box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 0;
+  }
+
+  .nav-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 4px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    scrollbar-width: thin;
+    scrollbar-color: #444 transparent;
+  }
+  .nav-container::-webkit-scrollbar { height: 4px; }
+  .nav-container::-webkit-scrollbar-thumb { background: #555; }
+
+  .nav-btn {
+    flex-shrink: 0;
+    background: transparent;
+    color: var(--text-dim);
+    border: 1px solid #333;
+    padding: 9px 18px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .nav-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
+
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  section {
+    margin-bottom: 70px;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  section h2 .icon {
+    font-size: 2rem;
+    filter: grayscale(100%) brightness(2);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--card-border-hover);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
+  }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.6));
+    pointer-events: none;
+  }
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: grayscale(20%);
+  }
+  .card:hover .card-img img {
+    transform: scale(1.08);
+    filter: grayscale(0%);
+  }
+
+  .card-body {
+    padding: 14px 16px 18px;
+  }
+
+  .card-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #fff;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+  }
+
+  .card-price {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    padding: 6px 14px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border: 1px solid #fff;
+  }
+  .card-price::before { content: 'R$ '; font-weight: 700; }
+
+  .card-note {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 0.3px;
+  }
+
+  .contact-section {
+    background: #0a0a0a;
+    border: 1px solid #1f1f1f;
+    padding: 60px 30px;
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+  }
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 1px;
+    background: #fff;
+  }
+  .contact-section h2 {
+    border: none;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    padding-bottom: 0;
+  }
+  .contact-section p {
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .discord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 18px 40px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    transition: all 0.25s ease;
+  }
+  .discord-btn:hover {
+    background: #000;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+
+  footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+  }
+  footer .footer-brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: 4px;
+  }
+
+  .discord-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.25);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 900;
+  }
+  .discord-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 35px rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 600px) {
+    .logo { font-size: 2.4rem; letter-spacing: 3px; }
+    section h2 { font-size: 1.3rem; letter-spacing: 2px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .card-name { font-size: 0.9rem; }
+    .card-price { font-size: 0.85rem; padding: 5px 10px; }
+    header { padding: 50px 15px 30px; }
+    .contact-section { padding: 40px 20px; }
+    .discord-btn { padding: 14px 28px; font-size: 1rem; }
+  }
+
+  .card { animation: fadeUp 0.5s ease backwards; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 class="logo">GOKUBLACK STORE</h1>
+  <p class="tagline">Tabela de UPs • Blox Fruits</p>
+  <p class="tagline" style="font-size: 0.95rem; margin-top: 4px;">Os melhores preços do servidor</p>
+  <span class="updated">✓ Tabela Atualizada</span>
+  <br>
+  <a href="https://discord.gg/gokublackstore" target="_blank" class="contact-cta" rel="noopener">
+    <span>💬 Entrar em Contato</span>
+  </a>
+</header>
+
+<nav>
+  <div class="nav-container">
+    <a href="#estilos" class="nav-btn">Estilos de Luta</a>
+    <a href="#espadas" class="nav-btn">Espadas</a>
+    <a href="#itens" class="nav-btn">Itens</a>
+    <a href="#armas" class="nav-btn">Armas</a>
+    <a href="#racas" class="nav-btn">Raças</a>
+    <a href="#racas-v4" class="nav-btn">Raças V4</a>
+    <a href="#leviathan" class="nav-btn">Leviathan</a>
+    <a href="#contato" class="nav-btn">Contato</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ESTILOS DE LUTA -->
+  <section id="estilos">
+    <h2><span class="icon">🥊</span> Estilos de Luta</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/8/83/Sanguine_Art.png/revision/latest/scale-to-width-down/300?cb=20231025151119" alt="Sanguine Art" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🥋</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Sanguine Art</div>
+          <span class="card-price">20,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/4/41/Godhuman.png/revision/latest/scale-to-width-down/300?cb=20220913103851" alt="GodHuman" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🙏</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">GodHuman</div>
+          <span class="card-price">15,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/e/e9/Dragon_Talon.png/revision/latest/scale-to-width-down/300?cb=20220228215538" alt="Dragon Talon" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🐉</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Dragon Talon</div>
+          <span class="card-price">10,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/0/00/Electric_Claw.png/revision/latest/scale-to-width-down/300?cb=20220228215956" alt="Electric Claw" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>⚡</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Electric Claw</div>
+          <span class="card-price">7,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/b3/Sharkman_Karate.png/revision/latest/scale-to-width-down/300?cb=20220228233224" alt="SharkMan Karate V2" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🦈</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">SharkMan Karate V2</div>
+          <span class="card-price">14,75</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPADAS -->
+  <section id="espadas">
+    <h2><span class="icon">⚔️</span> Espadas</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/7/74/Cursed_Dual_Katana.png/revision/latest?cb=20241223032242" alt="Cursed Dual Katana" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Cursed Dual Katana</div>
+          <span class="card-price">12,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/ba/Yama.png/revision/latest?cb=20241223032812" alt="Yama" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Yama</div>
+          <span class="card-price">5,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/0/0e/Tushita.png/revision/latest?cb=20241223032742" alt="Tushita" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Tushita</div>
+          <span class="card-price">7,99</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/b2/True_Triple_Katana.png/revision/latest?cb=20241223032727" alt="True Triple Katana" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>⚔️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">True Triple Katana</div>
+          <span class="card-price">12,50</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/f/f7/Saishi.png/revision/latest?cb=20241223032618" alt="Sashi" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Sashi</div>
+          <span class="card-price">5,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/7/72/Oroshi.png/revision/latest?cb=20250603090340" alt="Oroshi" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Oroshi</div>
+          <span class="card-price">5,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/4/48/Shizu.png/revision/latest?cb=20241223032646" alt="Shizu" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Shizu</div>
+          <span class="card-price">5,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/f/f8/Dark_Dagger.png/revision/latest?cb=20241223032258" alt="Mini Yoru" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>⚔️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Mini Yoru</div>
+          <span class="card-price">20,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/7/74/Dragonheart.png/revision/latest?cb=20241223032328" alt="Dragon Heart" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>❤️‍🔥</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Dragon Heart</div>
+          <span class="card-price">13,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/f/ff/Fox_Lamp.png/revision/latest?cb=20241223051549" alt="Fox Lamp" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🦊</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Fox Lamp</div>
+          <span class="card-price">10,50</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c5/Hallow_Scythe.png/revision/latest?cb=20241223061516" alt="Foice Sagrada" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>⚱️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Foice Sagrada</div>
+          <span class="card-price">10,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/e/ee/Shark_Anchor.png/revision/latest?cb=20241223143202" alt="Shark Anchor" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>⚓</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Shark Anchor</div>
+          <span class="card-price">10,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/ba/Yama.png/revision/latest?cb=20241223032812" alt="Yama com Magnetic" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🧲</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Yama com Magnetic</div>
+          <span class="card-price">6,50</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/a/a0/Dark_Blade.png/revision/latest/scale-to-width-down/300?cb=20241223051659" alt="Yoru V3" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Yoru V3</div>
+          <span class="card-price">19,00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITENS -->
+  <section id="itens">
+    <h2><span class="icon">💎</span> Itens</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/2/23/Dark_Coat.png/revision/latest?cb=20241223212802" alt="Dark Coat" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🧥</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Dark Coat</div>
+          <span class="card-price">25,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c9/Dark_Fragment.png/revision/latest/scale-to-width-down/300?cb=20231026123817" alt="Dark Fragment" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🧩</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Dark Fragment</div>
+          <span class="card-price">10,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/4/45/Kitsune_Mask.png/revision/latest?cb=20250103140840" alt="Kitsune Mask" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🎭</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Kitsune Mask</div>
+          <span class="card-price">10,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/2/29/Kitsune_Ribbon.png/revision/latest?cb=20250103140825" alt="Kitsune Ribbon" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🎀</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Kitsune Ribbon</div>
+          <span class="card-price">8,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/4/45/Kitsune_Mask.png/revision/latest?cb=20250103140840" alt="Kitsune Título" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🏷️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Kitsune Título</div>
+          <span class="card-price">7,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/4/45/Kitsune_Mask.png/revision/latest?cb=20250103140840" alt="Kitsune Aura" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>✨</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Kitsune Aura</div>
+          <span class="card-price">8,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/3/3f/Dino_Hood.png/revision/latest?cb=20241224014949" alt="Dino Hood" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🦖</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Dino Hood</div>
+          <span class="card-price">8,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/0/0b/Dragon_Egg.png/revision/latest/scale-to-width-down/300?cb=20241216214132" alt="Dragon Egg" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🥚</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Dragon Egg</div>
+          <span class="card-price">4,75</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/0/0b/Dragon_Egg.png/revision/latest/scale-to-width-down/300?cb=20241216214132" alt="Belly" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>💰</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Belly</div>
+          <span class="card-price">1,50</span>
+          <span class="card-note">Cada 1M</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c9/Dark_Fragment.png/revision/latest/scale-to-width-down/300?cb=20231026123817" alt="Fragmento" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>💎</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Fragmento</div>
+          <span class="card-price">1,00</span>
+          <span class="card-note">Cada 1K</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c9/Dark_Fragment.png/revision/latest/scale-to-width-down/300?cb=20231026123817" alt="Level" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>📈</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Level</div>
+          <span class="card-price">2,00</span>
+          <span class="card-note">Cada 150 LV</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/9/93/SecondSea_Indra_%28New%29.jpg/revision/latest/scale-to-width-down/300?cb=20260727100844" alt="Haki Lendário" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>👁️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Haki Lendário</div>
+          <span class="card-price">9,00</span>
+          <span class="card-note">Cada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARMAS -->
+  <section id="armas">
+    <h2><span class="icon">🔫</span> Armas</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/5/56/Dragonstorm.png/revision/latest?cb=20241223023554" alt="Dragon Storm" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🐲</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Dragon Storm</div>
+          <span class="card-price">13,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/e/e3/Skull_Guitar.png/revision/latest?cb=20241223023740" alt="Soul Guitar" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🎸</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Soul Guitar</div>
+          <span class="card-price">8,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/bb/Kabucha.png/revision/latest?cb=20241223023639" alt="Kabucha" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🪓</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Kabucha</div>
+          <span class="card-price">1,50</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c2/Acidum_Rifle.png/revision/latest?cb=20241223023342" alt="Acidum Rifle" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🔫</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Acidum Rifle</div>
+          <span class="card-price">6,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/f/f9/Venom_Bow.png/revision/latest?cb=20241223023810" alt="Serpent Bow" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🏹</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Serpent Bow</div>
+          <span class="card-price">3,00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAÇAS V1 -->
+  <section id="racas">
+    <h2><span class="icon">👤</span> Raças</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/b5/Draco.png/revision/latest/scale-to-width-down/300?cb=20241216212032" alt="Draco V1" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🐲</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Draco V1</div>
+          <span class="card-price">13,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/a/a3/Cyborg.png/revision/latest/scale-to-width-down/300?cb=20240407190113" alt="Cyborg V1" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🤖</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Cyborg V1</div>
+          <span class="card-price">8,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/e/e3/Ghoul.png/revision/latest/scale-to-width-down/300?cb=20240407190114" alt="Ghoul V1" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>👹</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Ghoul V1</div>
+          <span class="card-price">9,00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAÇAS V4 -->
+  <section id="racas-v4">
+    <h2><span class="icon">⭐</span> Raças V4</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/b5/Draco.png/revision/latest/scale-to-width-down/300?cb=20241216212032" alt="V4 Full Gear" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🌟</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">V4 Full Gear</div>
+          <span class="card-price">15,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/2/2c/Blue_Gear_Ah_Noobis.png/revision/latest/scale-to-width-down/300?cb=20250416220603" alt="1 Gear" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>⭐</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">1 Gear</div>
+          <span class="card-price">5,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/b5/Draco.png/revision/latest/scale-to-width-down/300?cb=20241216212032" alt="Draco V4 Full" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🐉</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Draco V4 Full</div>
+          <span class="card-price">15,00</span>
+          <span class="card-note">Trial 6,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/2/2c/Blue_Gear_Ah_Noobis.png/revision/latest/scale-to-width-down/300?cb=20250416220603" alt="Blue Gear" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🔵</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Blue Gear</div>
+          <span class="card-price">6,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c6/Mirror_Fractal.png/revision/latest/scale-to-width-down/300?cb=20231026234600" alt="Mirror Fractal" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🪞</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Mirror Fractal</div>
+          <span class="card-price">8,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/9/93/SecondSea_Indra_%28New%29.jpg/revision/latest/scale-to-width-down/300?cb=20260727100844" alt="Rip Indra" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>👁️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Rip Indra</div>
+          <span class="card-price">9,00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEVIATHAN -->
+  <section id="leviathan">
+    <h2><span class="icon">🐉</span> Leviathan</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/e/ed/Leviathan_Heart.png/revision/latest/scale-to-width-down/300?cb=20231026233359" alt="Coração do Leviathan" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>❤️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Coração do Leviathan</div>
+          <span class="card-price">15,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/e/ed/Leviathan_Heart.png/revision/latest/scale-to-width-down/300?cb=20231026233359" alt="Congelar Hydra" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>❄️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Congelar Hydra</div>
+          <span class="card-price">19,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/d/df/Leviathan_Crown.png/revision/latest/scale-to-width-down/300?cb=20231226193806" alt="Leviathan Crown" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>👑</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Leviathan Crown</div>
+          <span class="card-price">12,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/2/2f/Leviathan_Shield.png/revision/latest/scale-to-width-down/300?cb=20240922105617" alt="Escudo Leviathan" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🛡️</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Escudo Leviathan</div>
+          <span class="card-price">25,00</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/d/df/Leviathan_Crown.png/revision/latest/scale-to-width-down/300?cb=20231226193806" alt="Barco Leviathan" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>⛵</span>'"></div>
+        <div class="card-body">
+          <div class="card-name">Barco Leviathan</div>
+          <span class="card-price">21,00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO DE CONTATO -->
+  <section id="contato">
+    <div class="contact-section">
+      <h2>Entre em Contato</h2>
+      <p>Faça seu pedido ou tire suas dúvidas através do nosso Discord. Atendimento rápido e preços imbatíveis!</p>
+      <a href="https://discord.gg/gokublackstore" target="_blank" rel="noopener" class="discord-btn">
+        🎮 Entrar no Discord
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">GOKUBLACK STORE</div>
+  <p>Os melhores preços para UPs de Blox Fruits</p>
+  <p style="margin-top: 8px; font-size: 0.8rem;">© 2026 • Todos os direitos reservados</p>
+</footer>
+
+<a href="https://discord.gg/gokublackstore" target="_blank" rel="noopener" class="discord-float" title="Entrar no Discord">💬</a>
+
+</body>
+</html>

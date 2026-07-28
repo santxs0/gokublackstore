@@ -1,0 +1,77 @@
+# ESTILOS DE LUTA 
+
+ SanguineArt: 20,00
+ GodHuman: 15,00
+ Dragon Talor: 10,00
+ Eletric claw: 7,00
+ SharkMan karatê: 6,50
+ SharkMan Karatê V2: 14,75
+
+# ESPADAS
+
+ Cursed Dual Katana: 12,00 
+ Yama: 5,00
+ Tushita: 7,99
+ True Triple Katana: 12,50
+ Sashi: 5,00
+ Oroshi: 5,00
+ Shizu: 5,00  
+ Mini Yoru 20,00
+ Dragon Heart: 13,00
+ Fox Lamp: 10,50
+ Foice Sagrada: 10,00
+ Shark Anchor: 10,00
+ com magnetic: 6,50
+ Yoru V3 19,00 
+
+# ITENS
+
+ Dark Coat: 25,00
+ Dark Fragment: 10,00
+ Kitsune Mask: 10,00
+ Kitsune Ribbon: 8,00
+ Kitsune Título: 7,00
+ Kitsune Aura: 8,00
+ 
+ Dino hood: 8,00
+ Dragon egg: 4,75
+ Belly 1,50: CADA 1M
+ Fragmento: 1,00 Cada 1K
+ Level 2,00: CADA 150LV
+ Haki Lendário: 9,00 (cada)
+
+# ARMAS
+
+ Dragon Storm 13,00
+ Soul Guitar: 8,00
+ Kabucha: 1,50
+ Acidum rifle: 6,00
+ Serpent Bow: 3,00
+
+# RAÇAS 
+
+
+DRACO V1: 13,00
+CYBORG V1: 8,00
+GHOUL V1: 9,00
+
+# RAÇAS V4
+
+V4 FULL GEAR: 15,00
+1 GEAR: 5,00
+ Draco V4 FULL: 15,00 (trial 6,00)
+
+ Blue gear: 6,00
+ Mirror Fractal: 8,00
+ Rip Indra: 9,00
+
+# LEVIATHAN
+
+Coração do Leviathan: 15,00
+Congelar Hydra: 19,00
+Leviathan Crown: 12,00
+Escudo Leviathan: 25,00
+Barco Leviathan: 21,00
+
+
+**Tabela atualizada com os melhores preços possiveis**
