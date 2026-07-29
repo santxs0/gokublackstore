@@ -51,7 +51,7 @@ $items = @(
     @{id="frozen_hydra"; name="Frozen_Hydra"},
     @{id="leviathan_crown"; name="Leviathan_Crown"},
     @{id="leviathan_shield"; name="Leviathan_Shield"},
-    @{id="leviathan_boat"; name="Leviathan_Boat"}
+    @{id="leviathan_boat"; name="Beast_Hunter"}
 )
 
 $result = @{}

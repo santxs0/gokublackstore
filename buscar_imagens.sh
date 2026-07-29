@@ -47,7 +47,7 @@ ITEMS=(
     "frozen_hydra:Frozen_Hydra"
     "leviathan_crown:Leviathan_Crown"
     "leviathan_shield:Leviathan_Shield"
-    "leviathan_boat:Leviathan_Boat"
+    "leviathan_boat:Beast_Hunter"
 )
 
 cd "$(dirname "$0")"
