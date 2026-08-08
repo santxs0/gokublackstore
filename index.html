@@ -427,6 +427,39 @@
     margin-bottom: 8px;
     letter-spacing: 4px;
   }
+  footer .powered-by {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #1a1a1a;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+  footer .powered-by a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+  footer .powered-by a:hover {
+    color: var(--accent-2);
+    transform: translateY(-1px);
+  }
+  footer .powered-by img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--card-border);
+  }
 
   .discord-float {
     position: fixed;
@@ -924,6 +957,13 @@
   <div class="footer-brand">GOKUBLACK STORE</div>
   <p>Os melhores preços para UPs de Blox Fruits</p>
   <p style="margin-top: 8px; font-size: 0.8rem;">© 2026 • Todos os direitos reservados</p>
+  <div class="powered-by">
+    Powered by
+    <a href="https://hyper-web-inky.vercel.app/" target="_blank" rel="noopener noreferrer" title="Hiper Web">
+      <img src="img/logo-hyperweb.jpeg" alt="Hiper Web" />
+      Hiper Web
+    </a>
+  </div>
 </footer>
 
 <a href="https://discord.gg/gokublackstore" target="_blank" rel="noopener" class="discord-float" title="Entrar no Discord">💬</a>
