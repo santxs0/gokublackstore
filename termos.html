@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de UP • GokuBlack Store</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-1: #0a0508;
+    --bg-2: #12080f;
+    --bg-3: #1a0d18;
+    --primary: #ffffff;
+    --primary-2: #cccccc;
+    --accent: #ff2e7e;
+    --accent-2: #ff5ca0;
+    --accent-3: #a0144a;
+    --text: #ffffff;
+    --text-dim: #cccccc;
+    --text-muted: #999999;
+    --card-bg: #0d050b;
+    --card-border: #2a1820;
+    --card-border-hover: #ff2e7e;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+    background:
+      radial-gradient(ellipse at top, rgba(160, 20, 74, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom, rgba(255, 46, 126, 0.10) 0%, transparent 60%),
+      linear-gradient(180deg, #0a0508 0%, #12080f 50%, #0a0508 100%);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 46, 126, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(255, 92, 160, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 46, 126, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 46, 126, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    position: relative;
+    padding: 40px 20px 30px;
+    text-align: center;
+    z-index: 1;
+    border-bottom: 1px solid #2a1820;
+    overflow: hidden;
+  }
+
+  .logo-img {
+    display: block;
+    margin: 0 auto 18px;
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 46, 126, 0.4);
+    padding: 6px;
+    background: rgba(10, 5, 8, 0.4);
+    filter: drop-shadow(0 0 16px rgba(255, 46, 126, 0.5))
+            drop-shadow(0 0 32px rgba(255, 46, 126, 0.25));
+  }
+
+  .logo {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 20px rgba(255, 46, 126, 0.5),
+                 0 0 40px rgba(255, 46, 126, 0.3);
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #ffffff 0%, #ff5ca0 50%, #ff2e7e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .logo::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -8px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff2e7e, #ff5ca0, #ff2e7e, transparent);
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 20px rgba(255, 46, 126, 0.5), 0 0 40px rgba(255, 46, 126, 0.3); filter: drop-shadow(0 0 8px rgba(255, 46, 126, 0.5)); }
+    to   { text-shadow: 0 0 35px rgba(255, 92, 160, 0.7), 0 0 60px rgba(255, 92, 160, 0.4); filter: drop-shadow(0 0 16px rgba(255, 92, 160, 0.6)); }
+  }
+  .logo-img { animation: glow 3s ease-in-out infinite alternate; }
+
+  .tagline {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin: 18px 0 6px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .updated {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff2e7e 0%, #a0144a 100%);
+    color: #ffffff;
+    padding: 8px 22px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px rgba(255, 46, 126, 0.4);
+  }
+
+  .contact-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 28px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    margin-top: 25px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 25px rgba(255, 46, 126, 0.35);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 0;
+  }
+  .contact-cta:hover::before { transform: translateX(0); }
+  .contact-cta span { position: relative; z-index: 1; transition: color 0.25s ease; }
+  .contact-cta:hover span { color: #fff; }
+  .contact-cta:hover { box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 0;
+  }
+
+  .nav-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 4px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    scrollbar-width: thin;
+    scrollbar-color: #444 transparent;
+  }
+  .nav-container::-webkit-scrollbar { height: 4px; }
+  .nav-container::-webkit-scrollbar-thumb { background: #555; }
+
+  .nav-btn {
+    flex-shrink: 0;
+    background: transparent;
+    color: var(--text-dim);
+    border: 1px solid #333;
+    padding: 9px 18px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .nav-btn:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
+  .nav-btn.active {
+    background: linear-gradient(135deg, #ff2e7e 0%, #a0144a 100%);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HERO DOS TERMOS */
+  .termos-hero {
+    text-align: center;
+    padding: 30px 20px 40px;
+    margin-bottom: 40px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .termos-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: #fff;
+  }
+  .termos-hero h1 {
+    font-size: 2.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #ffffff 0%, #ff5ca0 50%, #ff2e7e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .termos-hero p {
+    color: var(--text-dim);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .termos-hero .alert {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #ff2e7e 0%, #a0144a 100%);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px rgba(255, 46, 126, 0.35);
+  }
+
+  /* BLOCOS DE TERMOS */
+  .termo-block {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--accent);
+    padding: 28px 30px;
+    margin-bottom: 22px;
+    position: relative;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .termo-block:hover {
+    border-color: var(--accent);
+    border-left-color: var(--accent-2);
+    transform: translateX(4px);
+    box-shadow: 0 0 25px rgba(255, 46, 126, 0.12);
+  }
+  .termo-block h2 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 0;
+    border: none;
+  }
+  .termo-block h2 .icon {
+    font-size: 1.6rem;
+  }
+  .termo-block p,
+  .termo-block li {
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+  .termo-block p { margin-bottom: 10px; }
+  .termo-block p:last-child { margin-bottom: 0; }
+  .termo-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0;
+  }
+  .termo-block ul li {
+    padding: 6px 0 6px 22px;
+    position: relative;
+  }
+  .termo-block ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .termo-block strong { color: #fff; }
+  .termo-block .quote {
+    display: block;
+    padding: 12px 16px;
+    background: rgba(255, 46, 126, 0.06);
+    border-left: 2px solid var(--accent);
+    color: var(--text);
+    margin: 10px 0;
+    font-style: italic;
+  }
+  .termo-block .quote::before {
+    content: '❝';
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-right: 6px;
+    font-style: normal;
+  }
+  .termo-block .quote::after {
+    content: '❞';
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-left: 6px;
+    font-style: normal;
+  }
+
+  /* BLOCO DE AVISO FINAL */
+  .final-block {
+    margin-top: 40px;
+    padding: 35px 30px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 46, 126, 0.10) 0%, rgba(160, 20, 74, 0.10) 100%);
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 30px rgba(255, 46, 126, 0.15);
+  }
+  .final-block h2 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #fff;
+    margin-bottom: 10px;
+    border: none;
+    padding: 0;
+    justify-content: center;
+  }
+  .final-block p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-section {
+    background: #0a0a0a;
+    border: 1px solid #1f1f1f;
+    padding: 60px 30px;
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+  }
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 100px; height: 1px;
+    background: #fff;
+  }
+  .contact-section h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #fff;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    border: none;
+    padding-bottom: 0;
+  }
+  .contact-section p {
+    color: var(--text-dim);
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .discord-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 18px 40px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 30px rgba(255, 46, 126, 0.4);
+    transition: all 0.25s ease;
+  }
+  .discord-btn:hover {
+    background: linear-gradient(135deg, #ff5ca0 0%, #ff2e7e 100%);
+    box-shadow: 0 0 40px rgba(255, 92, 160, 0.6);
+    transform: translateY(-2px);
+  }
+
+  footer {
+    text-align: center;
+    padding: 35px 20px;
+    background: #050505;
+    border-top: 1px solid #1a1a1a;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+  }
+  footer .footer-brand {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: 4px;
+  }
+  footer .powered-by {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid #1a1a1a;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+  footer .powered-by a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+  footer .powered-by a:hover {
+    color: var(--accent-2);
+    transform: translateY(-1px);
+  }
+  footer .powered-by img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--card-border);
+  }
+
+  .discord-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 25px rgba(255, 46, 126, 0.55);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 900;
+    border: 2px solid var(--accent);
+  }
+  .discord-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 35px rgba(255, 92, 160, 0.8);
+  }
+
+  @media (max-width: 600px) {
+    .logo { font-size: 2.4rem; letter-spacing: 3px; }
+    .termos-hero h1 { font-size: 1.8rem; letter-spacing: 2px; }
+    .termo-block { padding: 22px 20px; }
+    .termo-block h2 { font-size: 1.05rem; letter-spacing: 1.5px; }
+    .final-block { padding: 25px 20px; }
+    .contact-section h2 { font-size: 1.6rem; letter-spacing: 2px; }
+    .contact-section { padding: 40px 20px; }
+    .discord-btn { padding: 14px 28px; font-size: 1rem; }
+    header { padding: 50px 15px 30px; }
+  }
+
+  .termo-block, .final-block, .termos-hero {
+    animation: fadeUp 0.5s ease backwards;
+  }
+  .termo-block:nth-of-type(1) { animation-delay: 0.05s; }
+  .termo-block:nth-of-type(2) { animation-delay: 0.10s; }
+  .termo-block:nth-of-type(3) { animation-delay: 0.15s; }
+  .termo-block:nth-of-type(4) { animation-delay: 0.20s; }
+  .termo-block:nth-of-type(5) { animation-delay: 0.25s; }
+  .termo-block:nth-of-type(6) { animation-delay: 0.30s; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="img/logo.gif" alt="GokuBlack Store" class="logo-img" />
+  <h1 class="logo">GOKUBLACK STORE</h1>
+  <p class="tagline">Termos de UP • Blox Fruits</p>
+  <span class="updated">📖 Leia Antes de Contratar</span>
+  <br>
+  <a href="https://discord.gg/gokublackstore" target="_blank" class="contact-cta" rel="noopener">
+    <span>💬 Entrar em Contato</span>
+  </a>
+</header>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="nav-btn">⬅ Voltar à Tabela</a>
+    <a href="#inicio" class="nav-btn">Início do Serviço</a>
+    <a href="#atrasos" class="nav-btn">Atrasos</a>
+    <a href="#garantia" class="nav-btn">Garantia</a>
+    <a href="#cancelamento" class="nav-btn">Cancelamento</a>
+    <a href="#suporte" class="nav-btn">Suporte</a>
+    <a href="#regras" class="nav-btn">Regras</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <div class="termos-hero">
+    <h1>📖 Termos de UP</h1>
+    <p>Conheça as regras, prazos e condições para contratação dos nossos serviços de UP no Blox Fruits. Ao fechar o serviço, você declara estar de acordo com tudo abaixo.</p>
+    <div class="alert">⚠️ Contratação = Aceitação dos Termos</div>
+  </div>
+
+  <!-- INÍCIO DO SERVIÇO -->
+  <section id="inicio" class="termo-block">
+    <h2><span class="icon">🚀</span> Início do Serviço</h2>
+    <p>O UP começa <strong>após a confirmação do pagamento</strong> e o envio dos <strong>dados corretos</strong>.</p>
+    <span class="quote">Prazo estimado: 2 a 7 dias, podendo variar conforme a demanda ou dificuldade.</span>
+  </section>
+
+  <!-- ATRASOS E IMPREVISTOS -->
+  <section id="atrasos" class="termo-block">
+    <h2><span class="icon">⚠️</span> Atrasos e Imprevistos</h2>
+    <p>Podem ocorrer atrasos por:</p>
+    <ul>
+      <li>Instabilidade do jogo</li>
+      <li>Manutenção</li>
+      <li>Atualizações</li>
+      <li>Problemas técnicos</li>
+      <li>Imprevistos pessoais</li>
+    </ul>
+    <p>📢 <strong>Sempre que houver atraso, o cliente será avisado.</strong></p>
+  </section>
+
+  <!-- GARANTIA -->
+  <section id="garantia" class="termo-block">
+    <h2><span class="icon">🛡️</span> Garantia do Serviço</h2>
+    <p>✔️ A garantia cobre <strong>apenas a realização do UP</strong>.</p>
+    <p>❌ <strong>Não garantimos que o resultado será permanente.</strong></p>
+    <p>⚠️ Após a entrega, perdas futuras <strong>não são de nossa responsabilidade</strong>.</p>
+  </section>
+
+  <!-- CANCELAMENTO -->
+  <section id="cancelamento" class="termo-block">
+    <h2><span class="icon">❌</span> Cancelamento</h2>
+    <p>✅ O cancelamento é aceito <strong>apenas antes do início do UP</strong>.</p>
+    <p>🚫 Após o serviço ser iniciado:</p>
+    <ul>
+      <li>Não há cancelamento.</li>
+      <li>Não há reembolso.</li>
+    </ul>
+  </section>
+
+  <!-- SUPORTE -->
+  <section id="suporte" class="termo-block">
+    <h2><span class="icon">🎫</span> Suporte</h2>
+    <p>📩 Todo o suporte é realizado exclusivamente em nosso canal do Discord.</p>
+    <p>Ao solicitar atendimento, informe:</p>
+    <ul>
+      <li>👤 Nick no jogo.</li>
+      <li>🛒 Serviço adquirido.</li>
+      <li>❓ Motivo do atendimento.</li>
+    </ul>
+    <p>⏰ O tempo de resposta pode variar conforme o horário de atendimento.</p>
+    <p>⚠️ <strong>Se o Ticket for fechado, significa que o atendimento foi finalizado.</strong></p>
+  </section>
+
+  <!-- QUEBRA DE REGRAS -->
+  <section id="regras" class="termo-block">
+    <h2><span class="icon">🚫</span> Quebra de Regras</h2>
+    <p>❌ O descumprimento de qualquer regra poderá resultar no <strong>cancelamento do serviço sem direito a reembolso</strong>.</p>
+  </section>
+
+  <!-- AVISO FINAL -->
+  <div class="final-block">
+    <h2>✅ Ao fechar o UP, você declara estar de acordo com todos os termos acima.</h2>
+    <p>Em caso de dúvidas, abra um ticket em nosso Discord antes de iniciar o serviço.</p>
+  </div>
+
+  <!-- SEÇÃO DE CONTATO -->
+  <section id="contato">
+    <div class="contact-section">
+      <h2>💬 Dúvidas?</h2>
+      <p>Fale com a nossa equipe antes de contratar. Atendimento rápido e transparente em nosso Discord.</p>
+      <a href="https://discord.gg/gokublackstore" target="_blank" rel="noopener" class="discord-btn">
+        🎮 Entrar no Discord
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">GOKUBLACK STORE</div>
+  <p>Os melhores preços para UPs de Blox Fruits</p>
+  <p style="margin-top: 8px; font-size: 0.8rem;">© 2026 • Todos os direitos reservados</p>
+  <div class="powered-by">
+    Powered by
+    <a href="https://hyper-web-inky.vercel.app/" target="_blank" rel="noopener noreferrer" title="Hiper Web">
+      <img src="img/logo-hyperweb.jpeg" alt="Hiper Web" />
+      Hiper Web
+    </a>
+  </div>
+</footer>
+
+<a href="https://discord.gg/gokublackstore" target="_blank" rel="noopener" class="discord-float" title="Entrar no Discord">💬</a>
+
+</body>
+</html>
