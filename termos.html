@@ -8,20 +8,20 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg-1: #0a0508;
-    --bg-2: #12080f;
-    --bg-3: #1a0d18;
+    --bg-1: #000000;
+    --bg-2: #0a0a0a;
+    --bg-3: #141414;
     --primary: #ffffff;
     --primary-2: #cccccc;
-    --accent: #ff2e7e;
-    --accent-2: #ff5ca0;
-    --accent-3: #a0144a;
+    --accent: #ffffff;
+    --accent-2: #cccccc;
+    --accent-3: #888888;
     --text: #ffffff;
     --text-dim: #cccccc;
     --text-muted: #999999;
-    --card-bg: #0d050b;
-    --card-border: #2a1820;
-    --card-border-hover: #ff2e7e;
+    --card-bg: #0a0a0a;
+    --card-border: #2a2a2a;
+    --card-border-hover: #ffffff;
   }
 
   html { scroll-behavior: smooth; }
@@ -29,9 +29,9 @@
   body {
     font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     background:
-      radial-gradient(ellipse at top, rgba(160, 20, 74, 0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at bottom, rgba(255, 46, 126, 0.10) 0%, transparent 60%),
-      linear-gradient(180deg, #0a0508 0%, #12080f 50%, #0a0508 100%);
+      radial-gradient(ellipse at top, rgba(255, 255, 255, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.02) 0%, transparent 60%),
+      linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
     color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
@@ -43,8 +43,8 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(circle at 50% 0%, rgba(255, 46, 126, 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 50% 100%, rgba(255, 92, 160, 0.06) 0%, transparent 60%);
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
   }
@@ -54,8 +54,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255, 46, 126, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 46, 126, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
@@ -66,7 +66,7 @@
     padding: 40px 20px 30px;
     text-align: center;
     z-index: 1;
-    border-bottom: 1px solid #2a1820;
+    border-bottom: 1px solid #2a2a2a;
     overflow: hidden;
   }
 
@@ -77,11 +77,11 @@
     width: 100%;
     height: auto;
     border-radius: 18px;
-    border: 1px solid rgba(255, 46, 126, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 6px;
-    background: rgba(10, 5, 8, 0.4);
-    filter: drop-shadow(0 0 16px rgba(255, 46, 126, 0.5))
-            drop-shadow(0 0 32px rgba(255, 46, 126, 0.25));
+    background: rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.45))
+            drop-shadow(0 0 32px rgba(255, 255, 255, 0.2));
   }
 
   .logo {
@@ -91,11 +91,11 @@
     text-transform: uppercase;
     letter-spacing: 6px;
     margin-bottom: 12px;
-    text-shadow: 0 0 20px rgba(255, 46, 126, 0.5),
-                 0 0 40px rgba(255, 46, 126, 0.3);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.35),
+                 0 0 40px rgba(255, 255, 255, 0.15);
     position: relative;
     display: inline-block;
-    background: linear-gradient(135deg, #ffffff 0%, #ff5ca0 50%, #ff2e7e 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -105,12 +105,12 @@
     position: absolute;
     left: 0; right: 0; bottom: -8px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #ff2e7e, #ff5ca0, #ff2e7e, transparent);
+    background: linear-gradient(90deg, transparent, #ffffff, #cccccc, #ffffff, transparent);
   }
 
   @keyframes glow {
-    from { text-shadow: 0 0 20px rgba(255, 46, 126, 0.5), 0 0 40px rgba(255, 46, 126, 0.3); filter: drop-shadow(0 0 8px rgba(255, 46, 126, 0.5)); }
-    to   { text-shadow: 0 0 35px rgba(255, 92, 160, 0.7), 0 0 60px rgba(255, 92, 160, 0.4); filter: drop-shadow(0 0 16px rgba(255, 92, 160, 0.6)); }
+    from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.35), 0 0 40px rgba(255, 255, 255, 0.15); filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)); }
+    to   { text-shadow: 0 0 35px rgba(255, 255, 255, 0.6),  0 0 60px rgba(255, 255, 255, 0.25); filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.55)); }
   }
   .logo-img { animation: glow 3s ease-in-out infinite alternate; }
 
@@ -124,8 +124,8 @@
 
   .updated {
     display: inline-block;
-    background: linear-gradient(135deg, #ff2e7e 0%, #a0144a 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    color: #000000;
     padding: 8px 22px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -133,15 +133,15 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 20px rgba(255, 46, 126, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
 
   .contact-cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    color: #000000;
     text-decoration: none;
     padding: 14px 28px;
     font-weight: 800;
@@ -150,7 +150,7 @@
     font-size: 0.95rem;
     margin-top: 25px;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 25px rgba(255, 46, 126, 0.35);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
     transition: all 0.25s ease;
     position: relative;
     overflow: hidden;
@@ -167,7 +167,7 @@
   .contact-cta:hover::before { transform: translateX(0); }
   .contact-cta span { position: relative; z-index: 1; transition: color 0.25s ease; }
   .contact-cta:hover span { color: #fff; }
-  .contact-cta:hover { box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+  .contact-cta:hover { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
 
   nav {
     position: sticky;
@@ -213,8 +213,8 @@
     border-color: #fff;
   }
   .nav-btn.active {
-    background: linear-gradient(135deg, #ff2e7e 0%, #a0144a 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    color: #000;
     border-color: var(--accent);
   }
 
@@ -249,7 +249,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 4px;
-    background: linear-gradient(135deg, #ffffff 0%, #ff5ca0 50%, #ff2e7e 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -266,21 +266,21 @@
     display: inline-block;
     margin-top: 20px;
     padding: 10px 22px;
-    background: linear-gradient(135deg, #ff2e7e 0%, #a0144a 100%);
-    color: #fff;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    color: #000;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-size: 0.85rem;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 20px rgba(255, 46, 126, 0.35);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
   }
 
   /* BLOCOS DE TERMOS */
   .termo-block {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid #ffffff;
     padding: 28px 30px;
     margin-bottom: 22px;
     position: relative;
@@ -288,9 +288,9 @@
   }
   .termo-block:hover {
     border-color: var(--accent);
-    border-left-color: var(--accent-2);
+    border-left-color: #cccccc;
     transform: translateX(4px);
-    box-shadow: 0 0 25px rgba(255, 46, 126, 0.12);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
   }
   .termo-block h2 {
     font-size: 1.3rem;
@@ -306,6 +306,7 @@
   }
   .termo-block h2 .icon {
     font-size: 1.6rem;
+    filter: grayscale(100%) brightness(2);
   }
   .termo-block p,
   .termo-block li {
@@ -328,29 +329,29 @@
     content: '▸';
     position: absolute;
     left: 0;
-    color: var(--accent);
+    color: #ffffff;
     font-weight: 700;
   }
   .termo-block strong { color: #fff; }
   .termo-block .quote {
     display: block;
     padding: 12px 16px;
-    background: rgba(255, 46, 126, 0.06);
-    border-left: 2px solid var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 2px solid #ffffff;
     color: var(--text);
     margin: 10px 0;
     font-style: italic;
   }
   .termo-block .quote::before {
     content: '❝';
-    color: var(--accent);
+    color: #ffffff;
     font-size: 1.2rem;
     margin-right: 6px;
     font-style: normal;
   }
   .termo-block .quote::after {
     content: '❞';
-    color: var(--accent);
+    color: #ffffff;
     font-size: 1.2rem;
     margin-left: 6px;
     font-style: normal;
@@ -361,9 +362,9 @@
     margin-top: 40px;
     padding: 35px 30px;
     text-align: center;
-    background: linear-gradient(135deg, rgba(255, 46, 126, 0.10) 0%, rgba(160, 20, 74, 0.10) 100%);
-    border: 1px solid var(--accent);
-    box-shadow: 0 0 30px rgba(255, 46, 126, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(136, 136, 136, 0.08) 100%);
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.12);
   }
   .final-block h2 {
     font-size: 1.4rem;
@@ -424,8 +425,8 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    color: #000000;
     text-decoration: none;
     padding: 18px 40px;
     font-weight: 800;
@@ -433,12 +434,12 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 30px rgba(255, 46, 126, 0.4);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
     transition: all 0.25s ease;
   }
   .discord-btn:hover {
-    background: linear-gradient(135deg, #ff5ca0 0%, #ff2e7e 100%);
-    box-shadow: 0 0 40px rgba(255, 92, 160, 0.6);
+    background: linear-gradient(135deg, #cccccc 0%, #ffffff 100%);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.45);
     transform: translateY(-2px);
   }
 
@@ -499,13 +500,13 @@
     right: 25px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    color: #000000;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 25px rgba(255, 46, 126, 0.55);
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.45);
     z-index: 1000;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -515,7 +516,7 @@
   }
   .discord-float:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 35px rgba(255, 92, 160, 0.8);
+    box-shadow: 0 6px 35px rgba(255, 255, 255, 0.7);
   }
 
   @media (max-width: 600px) {
@@ -548,7 +549,7 @@
 <body>
 
 <header>
-  <img src="img/logo.gif" alt="GokuBlack Store" class="logo-img" />
+  <video src="img/logo.mp4" alt="GokuBlack Store" class="logo-img" autoplay loop muted playsinline></video>
   <h1 class="logo">GOKUBLACK STORE</h1>
   <p class="tagline">Termos de UP • Blox Fruits</p>
   <span class="updated">📖 Leia Antes de Contratar</span>
@@ -602,7 +603,7 @@
 
   <!-- GARANTIA -->
   <section id="garantia" class="termo-block">
-    <h2><span class="icon">🛡️</span> Garantia do Serviço</h2>
+    <h2><span class="icon">�️</span> Garantia do Serviço</h2>
     <p>✔️ A garantia cobre <strong>apenas a realização do UP</strong>.</p>
     <p>❌ <strong>Não garantimos que o resultado será permanente.</strong></p>
     <p>⚠️ Após a entrega, perdas futuras <strong>não são de nossa responsabilidade</strong>.</p>

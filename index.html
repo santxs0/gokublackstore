@@ -8,20 +8,20 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg-1: #0a0508;
-    --bg-2: #12080f;
-    --bg-3: #1a0d18;
+    --bg-1: #000000;
+    --bg-2: #0a0a0a;
+    --bg-3: #141414;
     --primary: #ffffff;
-    --primary-2: #cccccc;
-    --accent: #ff2e7e;
-    --accent-2: #ff5ca0;
-    --accent-3: #a0144a;
+    --primary-2: #e0e0e0;
+    --accent: #ffffff;
+    --accent-2: #cccccc;
+    --accent-3: #888888;
     --text: #ffffff;
     --text-dim: #cccccc;
     --text-muted: #999999;
-    --card-bg: #0d050b;
-    --card-border: #2a1820;
-    --card-border-hover: #ff2e7e;
+    --card-bg: #0a0a0a;
+    --card-border: #2a2a2a;
+    --card-border-hover: #ffffff;
   }
 
   html { scroll-behavior: smooth; }
@@ -29,9 +29,9 @@
   body {
     font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     background:
-      radial-gradient(ellipse at top, rgba(160, 20, 74, 0.18) 0%, transparent 55%),
-      radial-gradient(ellipse at bottom, rgba(255, 46, 126, 0.10) 0%, transparent 60%),
-      linear-gradient(180deg, #0a0508 0%, #12080f 50%, #0a0508 100%);
+      radial-gradient(ellipse at top, rgba(255, 255, 255, 0.04) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.02) 0%, transparent 60%),
+      linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
     color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
@@ -43,8 +43,8 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(circle at 50% 0%, rgba(255, 46, 126, 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 50% 100%, rgba(255, 92, 160, 0.06) 0%, transparent 60%);
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
     pointer-events: none;
     z-index: 0;
   }
@@ -54,8 +54,8 @@
     position: fixed;
     inset: 0;
     background-image:
-      linear-gradient(rgba(255, 46, 126, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 46, 126, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 40px 40px;
     pointer-events: none;
     z-index: 0;
@@ -66,7 +66,7 @@
     padding: 40px 20px 30px;
     text-align: center;
     z-index: 1;
-    border-bottom: 1px solid #2a1820;
+    border-bottom: 1px solid #2a2a2a;
     overflow: hidden;
   }
 
@@ -79,14 +79,14 @@
     border: 1px solid var(--card-border);
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 0 40px rgba(255, 46, 126, 0.25);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.12);
   }
   .banner-wrap::after {
     content: '';
     position: absolute;
     inset: 0;
     border-radius: 18px;
-    background: linear-gradient(180deg, transparent 60%, rgba(10, 5, 8, 0.5));
+    background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.5));
     pointer-events: none;
   }
   .banner-wrap img {
@@ -106,11 +106,11 @@
     width: 100%;
     height: auto;
     border-radius: 18px;
-    border: 1px solid rgba(255, 46, 126, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 6px;
-    background: rgba(10, 5, 8, 0.4);
-    filter: drop-shadow(0 0 16px rgba(255, 46, 126, 0.5))
-            drop-shadow(0 0 32px rgba(255, 46, 126, 0.25));
+    background: rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.45))
+            drop-shadow(0 0 32px rgba(255, 255, 255, 0.2));
   }
 
   .logo {
@@ -120,11 +120,11 @@
     text-transform: uppercase;
     letter-spacing: 6px;
     margin-bottom: 12px;
-    text-shadow: 0 0 20px rgba(255, 46, 126, 0.5),
-                 0 0 40px rgba(255, 46, 126, 0.3);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.35),
+                 0 0 40px rgba(255, 255, 255, 0.15);
     position: relative;
     display: inline-block;
-    background: linear-gradient(135deg, #ffffff 0%, #ff5ca0 50%, #ff2e7e 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -134,12 +134,12 @@
     position: absolute;
     left: 0; right: 0; bottom: -8px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #ff2e7e, #ff5ca0, #ff2e7e, transparent);
+    background: linear-gradient(90deg, transparent, #ffffff, #cccccc, #ffffff, transparent);
   }
 
   @keyframes glow {
-    from { text-shadow: 0 0 20px rgba(255, 46, 126, 0.5), 0 0 40px rgba(255, 46, 126, 0.3); filter: drop-shadow(0 0 8px rgba(255, 46, 126, 0.5)); }
-    to   { text-shadow: 0 0 35px rgba(255, 92, 160, 0.7), 0 0 60px rgba(255, 92, 160, 0.4); filter: drop-shadow(0 0 16px rgba(255, 92, 160, 0.6)); }
+    from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.35), 0 0 40px rgba(255, 255, 255, 0.15); filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4)); }
+    to   { text-shadow: 0 0 35px rgba(255, 255, 255, 0.6),  0 0 60px rgba(255, 255, 255, 0.25); filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.55)); }
   }
   .logo-img {
     animation: glow 3s ease-in-out infinite alternate;
@@ -155,8 +155,8 @@
 
   .updated {
     display: inline-block;
-    background: linear-gradient(135deg, #ff2e7e 0%, #a0144a 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+    color: #000000;
     padding: 8px 22px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -164,15 +164,15 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 20px rgba(255, 46, 126, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
   }
 
   .contact-cta {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    color: #000000;
     text-decoration: none;
     padding: 14px 28px;
     font-weight: 800;
@@ -181,7 +181,7 @@
     font-size: 0.95rem;
     margin-top: 25px;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 25px rgba(255, 46, 126, 0.35);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.25);
     transition: all 0.25s ease;
     position: relative;
     overflow: hidden;
@@ -198,7 +198,7 @@
   .contact-cta:hover::before { transform: translateX(0); }
   .contact-cta span { position: relative; z-index: 1; transition: color 0.25s ease; }
   .contact-cta:hover span { color: #fff; }
-  .contact-cta:hover { box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+  .contact-cta:hover { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
 
   nav {
     position: sticky;
@@ -315,12 +315,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease, filter 0.4s ease;
-    filter: grayscale(20%);
+    transition: transform 0.4s ease;
   }
   .card:hover .card-img img {
     transform: scale(1.08);
-    filter: grayscale(0%);
   }
 
   .card-body {
@@ -392,8 +390,8 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    color: #000000;
     text-decoration: none;
     padding: 18px 40px;
     font-weight: 800;
@@ -401,12 +399,12 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 30px rgba(255, 46, 126, 0.4);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
     transition: all 0.25s ease;
   }
   .discord-btn:hover {
-    background: linear-gradient(135deg, #ff5ca0 0%, #ff2e7e 100%);
-    box-shadow: 0 0 40px rgba(255, 92, 160, 0.6);
+    background: linear-gradient(135deg, #cccccc 0%, #ffffff 100%);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.45);
     transform: translateY(-2px);
   }
 
@@ -467,13 +465,13 @@
     right: 25px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #ff2e7e 0%, #ff5ca0 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+    color: #000000;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 25px rgba(255, 46, 126, 0.55);
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.45);
     z-index: 1000;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
@@ -483,7 +481,7 @@
   }
   .discord-float:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 35px rgba(255, 92, 160, 0.8);
+    box-shadow: 0 6px 35px rgba(255, 255, 255, 0.7);
   }
 
   @media (max-width: 600px) {
@@ -507,15 +505,12 @@
 <body>
 
 <header>
-  <img src="img/logo.gif" alt="GokuBlack Store" class="logo-img" />
+  <video src="img/logo.mp4" alt="GokuBlack Store" class="logo-img" autoplay loop muted playsinline></video>
   <h1 class="logo">GOKUBLACK STORE</h1>
   <p class="tagline">Tabela de UPs • Blox Fruits</p>
   <p class="tagline" style="font-size: 0.95rem; margin-top: 4px;">Os melhores preços do servidor</p>
   <span class="updated">✓ Tabela Atualizada</span>
   <br>
-  <div class="banner-wrap">
-    <img src="img/banner.png" alt="Goku Black — Banner" />
-  </div>
   <a href="https://discord.gg/gokublackstore" target="_blank" class="contact-cta" rel="noopener">
     <span>💬 Entrar em Contato</span>
   </a>
@@ -626,7 +621,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/4/48/Shizu.png/revision/latest?cb=20241223032646" alt="Shizu" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🗡️</span>'"></div>
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/4/48/Shizu.png/revision/latest?cb=20241223032646" alt="Shizu" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>�️</span>'"></div>
         <div class="card-body">
           <div class="card-name">Shizu</div>
           <span class="card-price">5,00</span>
@@ -710,7 +705,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/2/29/Kitsune_Ribbon.png/revision/latest?cb=20250103140825" alt="Kitsune Ribbon" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🎀</span>'"></div>
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/2/29/Kitsune_Ribbon.png/revision/latest?cb=20250103140825" alt="Kitsune Ribbon" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>�</span>'"></div>
         <div class="card-body">
           <div class="card-name">Kitsune Ribbon</div>
           <span class="card-price">8,00</span>
@@ -761,7 +756,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/be/Lv._2800_%28MAX%29.jpg/revision/latest?cb=20250930214750" alt="Level" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>📈</span>'"></div>
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/b/be/Lv._2800_%28MAX%29.jpg/revision/latest?cb=20250930214750" alt="Level" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>�</span>'"></div>
         <div class="card-body">
           <div class="card-name">Level</div>
           <span class="card-price">2,00</span>
@@ -883,7 +878,7 @@
         </div>
       </div>
       <div class="card">
-        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c6/Mirror_Fractal.png/revision/latest/scale-to-width-down/300?cb=20231026234600" alt="Mirror Fractal" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>🪞</span>'"></div>
+        <div class="card-img"><img src="https://static.wikia.nocookie.net/roblox-blox-piece/images/c/c6/Mirror_Fractal.png/revision/latest/scale-to-width-down/300?cb=20231026234600" alt="Mirror Fractal" onerror="this.parentElement.innerHTML='<span style=filter:grayscale(100%)>�</span>'"></div>
         <div class="card-body">
           <div class="card-name">Mirror Fractal</div>
           <span class="card-price">8,00</span>
